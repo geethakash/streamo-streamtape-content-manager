@@ -28,7 +28,7 @@ function SideBar({ isSideBarOpen, setIsSideBarOpen, location }) {
         />
       </button>
       <div
-        className={`w-14 bg-[#1e293b] h-screen fixed flex  flex-col justify-center ${
+        className={`w-14 bg-slate-500 dark:bg-[#1e293b] h-screen fixed flex  flex-col justify-center ${
           isSideBarOpen ? '' : '-translate-x-14'
         }`}
       >
@@ -64,8 +64,8 @@ function NavIcon({ to, icon, linkName }) {
         <div
           className={`w-5/6 h-5/6 rounded-md hover:bg-gray-700 p-2 flex justify-center items-center  ${
             isActive
-              ? 'bg-gray-400 text-gray-900'
-              : 'bg-gray-900 text-gray-400 '
+              ? 'dark:bg-gray-400 bg-gray-900 dark:text-gray-900 text-gray-400'
+              : 'bg-slate-700 text-gray-100 dark:bg-gray-900 dark:text-gray-400 '
           }`}
         >
           {icon}
@@ -74,7 +74,7 @@ function NavIcon({ to, icon, linkName }) {
           {linkName}
         </div>
         <div
-          className={`absolute z-20 h-10 w-[3px] bg-purple-600 left-0 rounded ${
+          className={`absolute z-20 h-10 w-[3px] bg-gray-900 dark:bg-purple-600 left-0 rounded ${
             isActive ? 'scale-100' : 'scale-0'
           }`}
         ></div>
