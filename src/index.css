@@ -1,13 +1,67 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  transition: all 0.2s ease-in-out;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  @apply bg-[#0f172a] overflow-hidden;
+  font-family: 'Nunito', sans-serif;
+}
+
+.folder-section {
+  /* @apply pr-14; */
+}
+.folder-title {
+  @apply text-base font-bold text-gray-400 pt-5 border-gray-500 border-b;
+}
+.folder-container {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5;
+}
+
+.form-input {
+  @apply w-11/12 mt-4 flex flex-col;
+}
+
+.form-input label {
+  @apply text-lg text-gray-400  px-2;
+}
+
+.form-input input {
+  @apply w-full py-1 px-2 bg-transparent outline-none text-gray-500 border-2 border-purple-500 placeholder:text-slate-600 focus:placeholder:opacity-0 rounded-lg;
+}
+
+/*  */
+/*  */
+/*  */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-slate-800;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-700;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-600;
+}
+
+input:-webkit-autofill {
+  border: 3px solid blue;
+}
+input:autofill {
+  border: 3px solid blue;
 }
