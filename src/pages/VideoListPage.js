@@ -28,7 +28,7 @@ function VideoListPage() {
       });
       return navigate('/profile');
     }
-    dispatch(userInfoRequest(userInfo?.login, userInfo?.key));
+    // dispatch(userInfoRequest(userInfo?.login, userInfo?.key));
   }, []);
   return (
     <div className="text-3xl font-white xl:pr-20 px-5">
