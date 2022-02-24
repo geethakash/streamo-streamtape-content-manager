@@ -15,7 +15,7 @@ function VideoListPage() {
   let params = useParams();
   let navigate = useNavigate();
 
-  const { fileList } = useSelector((state) => state.fileList);
+  const { fileList, loading } = useSelector((state) => state.fileList);
   const { userInfo, error } = useSelector((state) => state.userDetails);
   useEffect(() => {
     dispatch(getFileList(params.id));
@@ -31,35 +31,46 @@ function VideoListPage() {
     // dispatch(userInfoRequest(userInfo?.login, userInfo?.key));
   }, []);
   return (
-    <div className="text-3xl font-white xl:pr-20 px-5">
-      <h1 className="text-3xl pt-4 text-gray-300 font-extrabold">Video List</h1>
-      {!fileList?.folders.length == 0 && (
-        <div className="folder-section">
-          <div className="folder-title">
-            <span className="pl-2 mb-10">Folders</span>
-          </div>
-
-          <div className="folder-container">
-            {fileList?.folders.map((folder) => (
-              <Folder key={folder.id} folder={folder} />
-            ))}
+    <>
+      {loading && (
+        <div className="absolute flex h-full  w-full items-center justify-center backdrop-blur">
+          <div className="h-20 w-20">
+            <Spinner />
           </div>
         </div>
       )}
+      <div className="font-white px-5 text-3xl xl:pr-20">
+        <h1 className="pt-4 text-3xl font-extrabold text-gray-300">
+          Video List
+        </h1>
+        {!fileList?.folders.length == 0 && (
+          <div className="folder-section">
+            <div className="folder-title">
+              <span className="mb-10 pl-2">Folders</span>
+            </div>
 
-      {!fileList?.files.length == 0 && (
-        <div className="folder-section">
-          <div className="folder-title">
-            <span className="pl-2 mb-10">Videos</span>
+            <div className="folder-container">
+              {fileList?.folders.map((folder) => (
+                <Folder key={folder.id} folder={folder} />
+              ))}
+            </div>
           </div>
-          <div className="folder-container">
-            {fileList?.files.map((video) => (
-              <Video key={video.linkid} videoDetails={video} />
-            ))}
+        )}
+
+        {!fileList?.files.length == 0 && (
+          <div className="folder-section">
+            <div className="folder-title">
+              <span className="mb-10 pl-2">Videos</span>
+            </div>
+            <div className="folder-container">
+              {fileList?.files.map((video) => (
+                <Video key={video.linkid} videoDetails={video} />
+              ))}
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 }
 

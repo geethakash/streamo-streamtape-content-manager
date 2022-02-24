@@ -20,13 +20,13 @@ function App() {
         />
         <button
           onClick={() => setDarkMode(!darkMode)}
-          className="absolute right-0 m-3 p-1 border-2 rounded-lg shadow-md hover:shadow-xl hover:text-purple-500 hover:border-purple-500 text-gray-700 border-gray-600 focus:animate-vote"
+          className="focus:animate-vote absolute right-0 m-3 rounded-lg border-2 border-gray-600 p-1 text-gray-700 shadow-md hover:border-purple-500 hover:text-purple-500 hover:shadow-xl"
         >
           {darkMode ? <Moon /> : <Sun1 />}
         </button>
 
         <div
-          className={`w-100 h-screen bg-slate-200 dark:bg-[#0f172a] overflow-auto  ${
+          className={`w-100 h-screen overflow-auto bg-slate-200 dark:bg-[#0f172a]  ${
             isSideBarOpen ? 'pl-14' : ''
           }`}
         >
