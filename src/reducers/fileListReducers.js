@@ -16,7 +16,7 @@ export const fileListReducer = (state = {}, action) => {
     case FILELIST_FAIL:
       return { loading: false, error: action.payload };
     case FILELIST_RESET:
-      return { loading: false, fileList: '' };
+      return { loading: false, fileList: { folders: [], files: [] } };
     default:
       return state;
   }

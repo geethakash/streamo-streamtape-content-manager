@@ -13,7 +13,7 @@ function SideBar({ isSideBarOpen, setIsSideBarOpen, location }) {
   return (
     <>
       <button
-        className={`fixed top-1/2 -translate-y-1/2  h-12 hover:p-1 rounded-r  bg-slate-600 ${
+        className={`fixed top-1/2 h-12  -translate-y-1/2 rounded-r bg-slate-600  hover:p-1 ${
           isSideBarOpen ? 'translate-x-14' : ''
         }`}
         onClick={() => {
@@ -28,7 +28,7 @@ function SideBar({ isSideBarOpen, setIsSideBarOpen, location }) {
         />
       </button>
       <div
-        className={`w-14 bg-slate-500 dark:bg-[#1e293b] h-screen fixed flex  flex-col justify-center ${
+        className={`fixed flex h-screen w-14 flex-col justify-center  bg-slate-500 dark:bg-[#1e293b] ${
           isSideBarOpen ? '' : '-translate-x-14'
         }`}
       >
@@ -57,24 +57,24 @@ function NavIcon({ to, icon, linkName }) {
   return (
     <NavLink to={to}>
       <div
-        className={`group h-14 font-extrabold text-3xl flex justify-center items-center ${
+        className={`group flex h-14 items-center justify-center text-3xl font-extrabold ${
           isActive ? 'pointer-events-none' : 'none'
         }`}
       >
         <div
-          className={`w-5/6 h-5/6 rounded-md hover:bg-gray-700 p-2 flex justify-center items-center  ${
+          className={`flex h-5/6 w-5/6 items-center justify-center rounded-md p-2 hover:bg-gray-700 dark:hover:bg-gray-700  ${
             isActive
-              ? 'dark:bg-gray-400 bg-gray-900 dark:text-gray-900 text-gray-400'
+              ? 'bg-gray-900 text-gray-400 dark:bg-gray-400 dark:text-gray-900'
               : 'bg-slate-700 text-gray-100 dark:bg-gray-900 dark:text-gray-400 '
           }`}
         >
           {icon}
         </div>
-        <div className="text-xs absolute translate-x-16 px-1.5 py-1 bg-gray-700 rounded-lg scale-0 text-blue-400 group-hover:scale-100 tracking-wider">
+        <div className="absolute translate-x-14  scale-0 rounded-lg bg-gray-700 px-1.5   py-1 text-xs tracking-wider  text-blue-400 group-hover:translate-x-16  group-hover:scale-100">
           {linkName}
         </div>
         <div
-          className={`absolute z-20 h-10 w-[3px] bg-gray-900 dark:bg-purple-600 left-0 rounded ${
+          className={`absolute left-0 z-20 h-10 w-[3px] rounded bg-gray-900 dark:bg-purple-600 ${
             isActive ? 'scale-100' : 'scale-0'
           }`}
         ></div>
