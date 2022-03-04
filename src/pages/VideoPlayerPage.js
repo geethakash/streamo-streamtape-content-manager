@@ -33,12 +33,13 @@ function VideoPlayerPage() {
       )
       .then((res) => {
         setTimeout(() => {
-          axios(
-            `${baseUrl}/file/dl?file=${params.id}&ticket=${res.data?.result.ticket}`,
-            { credentials: 'include', method: 'GET', headers: headers }
-          ).then((resp) => {
-            setFileDlLink(resp.data.result.url);
-          });
+          axios
+            .get(
+              `${baseUrl}/file/dl?file=${params.id}&ticket=${res.data?.result.ticket}`
+            )
+            .then((resp) => {
+              setFileDlLink(resp.data.result.url);
+            });
         }, 5000);
       })
       .catch((error) => {
