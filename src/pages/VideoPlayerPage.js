@@ -18,7 +18,7 @@ function VideoPlayerPage() {
   headers.append('Content-Type', 'application/json');
   headers.append('Accept', 'application/json');
 
-  headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
+  headers.append('Access-Control-Allow-Origin', '*');
   headers.append('Access-Control-Allow-Credentials', 'true');
 
   headers.append('GET', 'POST', 'OPTIONS');
@@ -35,7 +35,12 @@ function VideoPlayerPage() {
         setTimeout(() => {
           axios
             .get(
-              `${baseUrl}/file/dl?file=${params.id}&ticket=${res.data?.result.ticket}`
+              `${baseUrl}/file/dl?file=${params.id}&ticket=${res.data?.result.ticket}`,
+              {
+                method: 'get',
+
+                headers,
+              }
             )
             .then((resp) => {
               setFileDlLink(resp.data.result.url);
