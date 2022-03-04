@@ -13,7 +13,7 @@ function SideBar({ isSideBarOpen, setIsSideBarOpen, location }) {
   return (
     <>
       <button
-        className={`fixed top-1/2 h-12  -translate-y-1/2 rounded-r bg-slate-600  hover:p-1 ${
+        className={`fixed top-1/2 z-40 h-12  -translate-y-1/2 rounded-r bg-slate-600  hover:p-1 ${
           isSideBarOpen ? 'translate-x-14' : ''
         }`}
         onClick={() => {
@@ -28,14 +28,14 @@ function SideBar({ isSideBarOpen, setIsSideBarOpen, location }) {
         />
       </button>
       <div
-        className={`fixed flex h-screen w-14 flex-col justify-center  bg-slate-500 dark:bg-[#1e293b] ${
+        className={`fixed z-40 flex h-screen w-14 flex-col justify-center  bg-slate-500 dark:bg-[#1e293b] ${
           isSideBarOpen ? '' : '-translate-x-14'
         }`}
       >
         <NavIcon to="/profile" icon={<User />} linkName="Profile" />
         <NavIcon to="/" icon={<Folder />} linkName="Files" />
         <NavIcon to="/starred" icon={<Star1 />} linkName="Starred" />
-        <NavIcon to="/Upload" icon={<DocumentUpload />} linkName="Upload" />
+        <NavIcon to="/upload" icon={<DocumentUpload />} linkName="Upload" />
       </div>
     </>
   );

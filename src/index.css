@@ -10,7 +10,7 @@
 }
 
 body {
-  @apply bg-[#0f172a] overflow-hidden;
+  @apply overflow-hidden bg-[#0f172a];
   font-family: 'Nunito', sans-serif;
 }
 
@@ -18,22 +18,26 @@ body {
   /* @apply pr-14; */
 }
 .folder-title {
-  @apply text-base font-bold text-gray-400 pt-5 border-gray-500 border-b;
+  @apply border-b border-gray-500 pt-5 text-base font-bold text-gray-400;
 }
 .folder-container {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5;
 }
 
 .form-input {
-  @apply w-11/12 mt-4 flex flex-col;
+  @apply mt-4 flex w-11/12 flex-col;
 }
 
 .form-input label {
-  @apply text-lg text-gray-400  px-2;
+  @apply px-2 text-lg  text-gray-400;
 }
 
 .form-input input {
-  @apply w-full py-1 px-2 bg-transparent outline-none text-gray-500 border-2 border-purple-500 placeholder:text-slate-600 focus:placeholder:opacity-0 rounded-lg;
+  @apply w-full rounded-lg border-2 border-purple-500 bg-transparent py-1 px-2 text-gray-500 outline-none placeholder:text-slate-600 focus:placeholder:opacity-0;
+}
+
+.button-icon {
+  @apply m-1 rounded-lg border-[3px] border-gray-500 p-1 text-gray-500 shadow-md  hover:border-blue-500 hover:text-purple-500 hover:shadow-xl;
 }
 
 /*  */
