@@ -37,7 +37,7 @@ body {
 }
 
 .button-icon {
-  @apply m-1 rounded-lg border-[3px] border-gray-500 p-1 text-gray-500 shadow-md  hover:border-blue-500 hover:text-purple-500 hover:shadow-xl;
+  @apply m-1 rounded-lg border-[3px] border-gray-500 p-1 text-gray-500 shadow-md;
 }
 
 /*  */
