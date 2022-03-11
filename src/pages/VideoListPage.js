@@ -8,6 +8,7 @@ import { getFileList } from '../actions/fileListActions';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { userInfo as userInfoRequest } from '../actions/userActions';
 import { USER_INFO_FAIL } from '../constants/userConstants';
+import FloatUploadButton from '../components/FloatUploadButton';
 
 function VideoListPage() {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ function VideoListPage() {
   return (
     <>
       {loading && (
-        <div className="absolute flex h-full  w-full items-center justify-center backdrop-blur">
+        <div className="absolute z-40 flex h-full  w-full items-center justify-center backdrop-blur">
           <div className="h-20 w-20">
             <Spinner />
           </div>
@@ -70,6 +71,7 @@ function VideoListPage() {
           </div>
         )}
       </div>
+      <FloatUploadButton folderId={params.id} />
     </>
   );
 }

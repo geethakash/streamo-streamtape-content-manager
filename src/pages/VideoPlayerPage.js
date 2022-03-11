@@ -36,6 +36,11 @@ function VideoPlayerPage() {
           // axios
           //   .get(
           //     `${baseUrl}/file/dl?file=${params.id}&ticket=${res.data?.result.ticket}`,
+          //     { crossdomain: true }
+          //   )
+          // axios
+          //   .get(
+          //     `${baseUrl}/file/dl?file=${params.id}&ticket=${res.data?.result.ticket}`,
           //     {
           //       mode: 'no-cors',
           //       headers: {
@@ -48,30 +53,37 @@ function VideoPlayerPage() {
           //       crossdomain: true,
           //     }
           //   )
-          //   .then((resp) => {
-          //     setFileDlLink(resp.data.result.url);
-          //   });
-          // fetch(
-          //   `${baseUrl}/file/dl?file=${params.id}&ticket=${res.data?.result.ticket}`
-          // )
-          //   .then((response) => response.json())
-          //   .then((data) => console.log(data));
-          var axios = require('axios');
-
-          var config = {
-            method: 'get',
-            mode: 'no-cors',
-            url: `${baseUrl}/file/dl?file=${params.id}&ticket=${res.data?.result.ticket}`,
+          // .then((resp) => {
+          //   setFileDlLink(resp.data.result.url);
+          // });
+          var requestOptions = {
+            method: 'GET',
+            redirect: 'follow',
             headers: {},
           };
 
-          axios(config)
-            .then(function (response) {
-              console.log(JSON.stringify(response.data));
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
+          fetch(
+            `${baseUrl}/file/dl?file=${params.id}&ticket=${res.data?.result.ticket}`,
+            requestOptions
+          )
+            .then((response) => response.text())
+            .then((result) => console.log(result))
+            .catch((error) => console.log('error', error));
+
+          // var config = {
+          //   method: 'get',
+          //   mode: 'no-cors',
+          //   url: `${baseUrl}/file/dl?file=${params.id}&ticket=${res.data?.result.ticket}`,
+          //   headers: {},
+          // };
+
+          // axios(config)
+          //   .then(function (response) {
+          //     console.log(JSON.stringify(response.data));
+          //   })
+          //   .catch(function (error) {
+          //     console.log(error);
+          //   });
         }, 5000);
       })
       .catch((error) => {
@@ -100,6 +112,35 @@ function VideoPlayerPage() {
           ></iframe> */}
           <Plyr ref={ref} source={{ type: 'video', src: `${baseUrl}/v/` }} />
           <div className="flex justify-end">
+            <div>
+              <button className="button-icon hover:border-purple-500 hover:text-purple-500">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_202_3)">
+                    <path
+                      d="M25 15.3756V21.6756C25 26.9256 22.9 29.0256 17.65 29.0256H11.35C6.1 29.0256 4 26.9256 4 21.6756V15.3756C4 10.1256 6.1 8.02563 11.35 8.02563H17.65"
+                      stroke="currentcolor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M20.1666 4.74366L27.3691 5.001L27.6264 12.2035M15.3494 17.0205L27.2718 5.09826"
+                      stroke="currentcolor"
+                      stroke-width="2"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                </svg>
+              </button>
+            </div>
             <div>
               <button className="button-icon hover:border-purple-500 hover:text-purple-500">
                 <Star1 />

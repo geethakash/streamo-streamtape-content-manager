@@ -11,7 +11,7 @@ export const fileListReducer = (state = {}, action) => {
       return { loading: true };
 
     case FILELIST_SUCCESS:
-      console.log(action.payload);
+      // console.log(action.payload);
       return { loading: false, fileList: action.payload.data };
 
     case FILELIST_FAIL:
