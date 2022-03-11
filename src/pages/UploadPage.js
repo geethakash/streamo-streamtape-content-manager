@@ -60,8 +60,8 @@ function UploadPage({}) {
   };
 
   return (
-    <div className="font-white flex  h-full w-full flex-col items-center justify-center px-5 lg:flex-row  xl:pr-20">
-      <div className="item flex w-full flex-col  items-center justify-center md:items-start md:pl-10 lg:w-1/2">
+    <div className="font-white flex  h-full w-full flex-col items-center px-5 lg:flex-row  xl:pr-20">
+      <div className="item mt-10 flex w-full flex-col items-center  justify-center border-b-2 border-purple-400 pb-5 md:items-start md:pl-10 lg:w-1/2">
         <h1 className="pt-4 text-2xl font-extrabold text-gray-300 lg:text-3xl">
           Upload
         </h1>
@@ -77,7 +77,7 @@ function UploadPage({}) {
           </div>
         </form>
       </div>
-      <div className="item  mt-10 flex w-full flex-col items-center justify-center border-t-2 border-purple-400 p-3 md:items-start md:border-none  lg:w-1/2">
+      <div className="item mt-10   flex w-full flex-col items-center justify-center px-3 md:items-start md:border-none  lg:w-1/2">
         <h1 className=" text-2xl font-extrabold text-gray-300 lg:text-3xl">
           Remote upload
         </h1>
