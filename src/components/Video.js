@@ -2,10 +2,11 @@ import Axios from 'axios';
 import { VideoCircle } from 'iconsax-react';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { baseUrl } from '../data';
 
 function Video({ videoDetails }) {
+  let params = useParams();
   const [thumbnail, setThumbnail] = useState(null);
   const { userInfo } = useSelector((state) => state.userDetails);
   useEffect(() => {
@@ -32,7 +33,7 @@ function Video({ videoDetails }) {
   return (
     <div className="group mx-3 mt-4 rounded-md border-2 border-purple-300 border-opacity-0  hover:border-opacity-100">
       <img className="h-auto w-full rounded-t-md" src={thumbnail} />
-      <Link to={`/video/${videoDetails.linkid}`} target="_blank">
+      <Link to={`/video/${videoDetails.linkid}?folder=${params.id}`}>
         <div
           className={`bottom-0 flex  h-10 items-center rounded-b-md border-slate-500 bg-slate-800 pl-3 text-gray-400 group-hover:text-purple-400 group-hover:shadow-lg   ${
             !videoDetails.name ? 'pointer-events-none' : ''

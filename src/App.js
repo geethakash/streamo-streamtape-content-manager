@@ -9,6 +9,7 @@ import { ArrowRight2, Moon, Sun1 } from 'iconsax-react';
 import UnderDev from './pages/UnderDev';
 import VideoPlayerPage from './pages/VideoPlayerPage';
 import UploadPage from './pages/UploadPage';
+import WarningPage from './pages/WarningPage';
 
 function App() {
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
@@ -39,6 +40,7 @@ function App() {
             <Route path="/video/:id" element={<VideoPlayerPage />} />
             <Route path="/starred" element={<UnderDev />} />
             <Route path="/upload" element={<UploadPage />} />
+            
           </Routes>
         </div>
       </Router>

@@ -61,7 +61,7 @@ function UploadPage({}) {
 
   return (
     <div className="font-white flex  h-full w-full flex-col items-center px-5 lg:flex-row  xl:pr-20">
-      <div className="item mt-10 flex w-full flex-col items-center  justify-center border-b-2 border-purple-400 pb-5 md:items-start md:pl-10 lg:w-1/2">
+      <div className="item mt-10 flex w-full flex-col items-center  justify-center border-b-2 border-purple-400 pb-5 md:items-start md:pl-10 lg:w-1/2 lg:border-b-0">
         <h1 className="pt-4 text-2xl font-extrabold text-gray-300 lg:text-3xl">
           Upload
         </h1>
