@@ -29,6 +29,10 @@ function UserProfile() {
           </div>
         </div>
       )}
+      {/* <div className="font-white px-5 text-3xl xl:pr-20"> */}
+      <h1 className="px-5 pt-4 text-3xl font-extrabold text-gray-300 xl:pr-20">
+        Profile
+      </h1>
       <div className="flex h-full  w-full items-center justify-center p-3 ">
         <form
           autoComplete="off"
@@ -94,6 +98,7 @@ function UserProfile() {
           </button>
         </form>
       </div>
+      {/* </div> */}
     </>
   );
 }

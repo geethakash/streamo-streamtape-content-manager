@@ -22,7 +22,10 @@ export const getFileList = (folderId) => async (dispatch, getState) => {
       }`
     );
     if (data.status === 200) {
-      dispatch({ type: FILELIST_SUCCESS, payload: data.result });
+      dispatch({
+        type: FILELIST_SUCCESS,
+        payload: { folderId, data: data.result },
+      });
     } else {
       dispatch({
         type: FILELIST_FAIL,

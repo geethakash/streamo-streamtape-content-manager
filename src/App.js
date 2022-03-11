@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import 'plyr-react/dist/plyr.css';
 import SideBar from './components/SideBar';
 import { Routes, Route, HashRouter as Router } from 'react-router-dom';
 import VideoListPage from './pages/VideoListPage';
@@ -7,6 +7,9 @@ import UserProfile from './pages/UserProfile';
 import { useState } from 'react';
 import { ArrowRight2, Moon, Sun1 } from 'iconsax-react';
 import UnderDev from './pages/UnderDev';
+import VideoPlayerPage from './pages/VideoPlayerPage';
+import UploadPage from './pages/UploadPage';
+import WarningPage from './pages/WarningPage';
 
 function App() {
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
@@ -34,8 +37,10 @@ function App() {
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/" element={<VideoListPage />} />
             <Route path="/folder/:id" element={<VideoListPage />} />
+            <Route path="/video/:id" element={<VideoPlayerPage />} />
             <Route path="/starred" element={<UnderDev />} />
-            <Route path="/upload" element={<UnderDev />} />
+            <Route path="/upload" element={<UploadPage />} />
+            
           </Routes>
         </div>
       </Router>
