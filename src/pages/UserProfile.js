@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { userInfo as userInfoRequest } from '../actions/userActions';
 import Spinner from '../components/Spinner';
 
 function UserProfile() {
+  const { search } = useLocation();
+  var params = {};
   const { userInfo, error, loading } = useSelector(
     (state) => state.userDetails
   );
@@ -14,12 +16,34 @@ function UserProfile() {
 
   const dispatch = useDispatch();
 
+  const getParams = () => {
+    const paramsFromGetUrl = search.replace('?', '').split('&');
+
+    if (paramsFromGetUrl) {
+      paramsFromGetUrl.map((paramFromGetUrl) => {
+        let splitedParam = paramFromGetUrl.split('=');
+        params[splitedParam[0]] = splitedParam[1];
+      });
+    }
+    console.log(params);
+    if (params.key) {
+      setLogin(params.login);
+      setKey(params.key);
+    }
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
+  };
+
+  useEffect(() => {
+    getParams();
+  }, []);
+  useEffect(() => {
     if (login && key) {
       dispatch(userInfoRequest(login, key));
     }
-  };
+  }, [login, key]);
   return (
     <>
       {loading && (
@@ -94,7 +118,7 @@ function UserProfile() {
             type="submit"
             className="w-full rounded-lg bg-purple-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800 sm:w-auto"
           >
-            Submit
+            Log in
           </button>
         </form>
       </div>
