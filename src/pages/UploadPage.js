@@ -37,13 +37,6 @@ function UploadPage({}) {
 
     setUploadUrl(params.url);
     setFolder(params.folder);
-
-    // setInterval(async () => {
-    //   let { data } = await axios.get(
-    //     `https://api.streamtape.com/remotedl/status?login=${userInfo.login}&key=${userInfo.key}`
-    //   );
-    //   console.log(data);
-    // }, 10000);
   }, []);
 
   const remoteUpload = async () => {
