@@ -1,6 +1,6 @@
 {
   "short_name": "Streamo",
-  "name": "Streamo | Streamtape Content Manager",
+  "name": "Streamtape Manager",
   "icons": [
     {
       "src": "favicon-64.png",
@@ -24,3 +24,4 @@
   "background_color": "#ffffff",
   "scope": "."
 }
+
