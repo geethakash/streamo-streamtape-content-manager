@@ -9,8 +9,7 @@
 @tailwind utilities;
 
 * {
-  padding: 0;
-  transition: all 0.2s ease-in-out;
+  @apply transition-all duration-200;
 }
 
 body {
@@ -18,9 +17,6 @@ body {
   font-family: 'Nunito', sans-serif;
 }
 
-.folder-section {
-  /* @apply pr-14; */
-}
 .folder-title {
   @apply border-b border-gray-500 pt-5 text-base font-bold text-gray-400;
 }
